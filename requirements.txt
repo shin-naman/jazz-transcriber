@@ -1,0 +1,19 @@
+# Source separation
+demucs
+
+# Audio-to-MIDI transcription
+basic-pitch
+
+# MIDI processing
+pretty_midi
+music21
+
+# Visualization
+matplotlib
+
+# Web interface
+streamlit
+
+# Audio utilities
+soundfile
+librosa

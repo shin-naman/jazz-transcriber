@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Audio files (too large for git)
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.aiff
+*.m4a
+
+# MIDI outputs (regenerable)
+output/
+separated/
+
+# Demucs output directory
+htdemucs/
+mdx_extra/
+
+# Model weights (downloaded at runtime)
+models/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
