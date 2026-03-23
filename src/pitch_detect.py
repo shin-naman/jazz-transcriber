@@ -11,8 +11,11 @@ Usage:
 
 from pathlib import Path
 from basic_pitch.inference import predict
-from basic_pitch import ICASSP_2022_MODEL_PATH
+from basic_pitch import build_icassp_2022_model_path, FilenameSuffix
 import pretty_midi
+
+# Use the ONNX model — faster on CPU and avoids TensorFlow compatibility issues
+MODEL_PATH = build_icassp_2022_model_path(FilenameSuffix.onnx)
 
 
 # ── Default parameters ──────────────────────────────────────────
@@ -82,7 +85,7 @@ def transcribe_to_midi(
     #   note_events: list of (start_time, end_time, pitch, velocity, confidence)
     model_output, midi_data, note_events = predict(
         str(input_path),
-        model_or_model_path=ICASSP_2022_MODEL_PATH,
+        model_or_model_path=MODEL_PATH,
         onset_threshold=onset_threshold,
         frame_threshold=frame_threshold,
         minimum_note_length=minimum_note_length,
@@ -120,7 +123,7 @@ def get_note_events(input_path: str, **kwargs) -> list[dict]:
     input_path = Path(input_path)
     model_output, midi_data, note_events = predict(
         str(input_path),
-        model_or_model_path=ICASSP_2022_MODEL_PATH,
+        model_or_model_path=MODEL_PATH,
         onset_threshold=kwargs.get("onset_threshold", DEFAULT_PARAMS["onset_threshold"]),
         frame_threshold=kwargs.get("frame_threshold", DEFAULT_PARAMS["frame_threshold"]),
         minimum_note_length=kwargs.get("minimum_note_length", DEFAULT_PARAMS["minimum_note_length"]),
